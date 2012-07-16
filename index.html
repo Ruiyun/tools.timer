@@ -1,0 +1,172 @@
+<html>
+  <head>
+    <title>ruiyun.tools.timer.core - tools.timer API documentation</title>
+    <link href="static/favicon.png" rel="icon" />
+    <link href="static/favicon.png" rel="shortcut icon" />
+    <link media="all" type="text/css" href="static/clojure.css" rel="stylesheet" />
+    <link media="all" type="text/css" href="static/wiki.css" rel="stylesheet" />
+    <link media="all" type="text/css" href="static/internal.css" rel="stylesheet" />
+    <style>.menuWrapper{height: 36px;}</style>
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" href="http://www.wikispaces.com/_/2009051601/s/internal_ie.css" type="text/css" />
+    <![endif]-->
+  </head>
+<!--
+This document was auto-generated from the source by the clojure autodoc system.
+To report errors or ask questions about the overall documentation structure, formatting,
+etc., contact Tom Faulhaber (google mail name: tomfaulhaber).
+For errors in the documentation of a particular namespace, contact the author of that
+namespace.
+-->
+  <body>
+    <div id="AllContentContainer">
+      <div id="Header">
+	<a id="Logo" href="index.html"><img alt="Clojure" height="100" width="100" src="static/clojure-icon.gif" /></a>
+	<h1><a title="page header title" id="page-header" href="index.html">ruiyun.tools.timer API Documentation</a></h1>
+      </div>
+      <div id="leftcolumn"><div style="text-align: center;"></div>
+<div class="menu">
+  <div class="WikiCustomNav WikiElement wiki">
+    <span class="toc-header"><span id="project-name">tools.timer</span> <span id="version"></span> API</span><br />
+    <ul>
+      <li><a class="wiki_link" href="index.html">Overview</a></li>
+      <li><a class="wiki_link" href="api-index.html">API Index</a></li>
+    </ul>
+    
+    
+    <a href="http://clojure.org" class="wiki_link">Clojure Home</a>
+  </div>
+</div>
+</div>
+      <div id="rightcolumn">
+	<div id="Content">
+	  <div class="contentBox"><div class="innerContentBox">
+              <div id="content_view" class="wiki wikiPage">
+                <div id="right-sidebar"><div id="toc">
+  <h1 class="nopad">Table of Contents</h1>
+  <div style="margin-left: 1em;" class="toc-section">
+    <a href="#toc0">Overview</a>
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a href="#ruiyun.tools.timer.core/cancel!">cancel!</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#ruiyun.tools.timer.core/deamon-timer">deamon-timer</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#ruiyun.tools.timer.core/run-task!">run-task!</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#ruiyun.tools.timer.core/timer">timer</a>
+    </div>
+    <br />
+  </div>
+</div>
+</div>
+                <div id="content-tag"><h1 id="overview">API for <span id="namespace-name">ruiyun.tools.timer.core</span>
+  - <span id="header-project">tools.timer</span> <span id="header-version"></span>
+  </h1>
+<span id="author-line">by <span id="author-name">ruiyun</span><br /></span>
+<br />Full namespace name: <span id="long-name">ruiyun.tools.timer.core</span>
+<p></p>
+<h2>Overview</h2>
+<pre id="namespace-docstr">ruiyun.tools.timer is an easy to use Java Timer wrapper for clojure.
+You can simply start a period task with every 5 seconds immediately like this:
+
+  (run-task! #(println "Say hello every 5 seconds.") :period 5000)
+
+If you want delay the first run with 2 seconds：
+
+  (run-task! #(println "Say hello after 2 seconds.") :dealy 2000)
+
+Use this if you want to execute a task at an absolute time：
+
+  (run-task! #(println "Say hello at 2013-01-01T00:00:00 in beijing.") :at #inst "2013-01-01T00:00:00+08:00")
+
+And, you can use the same timer in more than one tasks:
+
+  (def greeting-timer (timer "The timer for greeting"))
+  (run-task! #(println "Say hello after 2 seconds.") :dealy 2000 :by greeting-timer)
+  (run-task! #(println "Say hello every 5 seconds.") :period 5000 :by greeting-timer)
+
+Finally, you can cancel a timer's tasks:
+
+  (cancel! greeting-timer)</pre>
+
+
+<br />
+<h2>Public Variables and Functions</h2>
+<div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="ruiyun.tools.timer.core/cancel!">cancel!</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (cancel! timer)
+</pre>
+  <pre id="var-docstr">Terminates a timer, discarding any currently scheduled tasks.</pre>
+  <span class="var-added"><span id="content">Added in tools.timer version 1.0.0</span><br /></span>
+  
+  
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="ruiyun.tools.timer.core/deamon-timer">deamon-timer</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (deamon-timer)
+       (deamon-timer name)
+</pre>
+  <pre id="var-docstr">Create a new java.util.Timer object with deamon option.</pre>
+  <span class="var-added"><span id="content">Added in tools.timer version 1.0.0</span><br /></span>
+  
+  
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="ruiyun.tools.timer.core/run-task!">run-task!</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (run-task! task &amp; {:keys [by at delay period on-exception]})
+</pre>
+  <pre id="var-docstr">Execute a timer task, then return the timer user passed or be auto created.
+Normally, User need set one of the two options:
+  :at &lt;time&gt;
+  :delay &lt;milliseconds&gt;
+If set none of them, the task will launch immediately.
+
+Optional, user can set:
+  :period &lt;milliseconds&gt;
+
+If user want share a timer between tow or more tasks, he can set an exist timer:
+  :by &lt;a timer&gt;
+
+Sometimes user task may cause exception, it's a good reason to use an exception handler:
+  :on-exception &lt;handle function with an exception argument&gt;</pre>
+  <span class="var-added"><span id="content">Added in tools.timer version 1.0.0</span><br /></span>
+  
+  
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="ruiyun.tools.timer.core/timer">timer</h2>
+  <span id="var-type">function</span><br />
+  <pre id="var-usage">Usage: (timer)
+       (timer name)
+</pre>
+  <pre id="var-docstr">Create a new java.util.Timer object.</pre>
+  <span class="var-added"><span id="content">Added in tools.timer version 1.0.0</span><br /></span>
+  
+  
+</div>
+
+
+</div>
+              </div>
+            </div>
+          </div>
+	</div>
+	<div id="foot">
+	  <div style="text-align: center;" id="copyright">No copyright info </div>
+	</div>
+      </div>
+      <div id="DesignedBy">Logo &amp; site design by <a title="Visit Tom Hickey's website." href="http://www.tomhickey.com">Tom Hickey</a>.<br />
+      Clojure auto-documentation system by Tom Faulhaber.</div>
+    </div>
+    <!-- /AllContentContainer -->
+  </body>
+
+</html>
