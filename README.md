@@ -27,7 +27,7 @@ Then execute
 Quick tutorial
 ==============
 
-You can simply start a period task with every 5 seconds immediately like this:
+You can simply start a period task in every 5 seconds immediately like this:
 
 ```clojure
 (use 'ruiyun.tools.timer)

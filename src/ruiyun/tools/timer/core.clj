@@ -1,5 +1,5 @@
 (ns ^{:doc "ruiyun.tools.timer is an easy to use Java Timer wrapper for clojure.
-            You can simply start a period task with every 5 seconds immediately like this:
+            You can simply start a period task in every 5 seconds immediately like this:
 
               (run-task! #(println \"Say hello every 5 seconds.\") :period 5000)
 
