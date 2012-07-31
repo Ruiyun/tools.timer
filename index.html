@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>ruiyun.tools.timer.core - tools.timer API documentation</title>
+    <title>ruiyun.tools.timer - tools.timer API documentation</title>
     <link href="static/favicon.png" rel="icon" />
     <link href="static/favicon.png" rel="shortcut icon" />
     <link media="all" type="text/css" href="static/clojure.css" rel="stylesheet" />
@@ -47,23 +47,23 @@ namespace.
   <div style="margin-left: 1em;" class="toc-section">
     <a href="#toc0">Overview</a>
     <div style="margin-left: 1em;" class="toc-entry">
-      <a href="#ruiyun.tools.timer.core/cancel!">cancel!</a>
+      <a href="#ruiyun.tools.timer/cancel!">cancel!</a>
     </div><div style="margin-left: 1em;" class="toc-entry">
-      <a href="#ruiyun.tools.timer.core/deamon-timer">deamon-timer</a>
+      <a href="#ruiyun.tools.timer/deamon-timer">deamon-timer</a>
     </div><div style="margin-left: 1em;" class="toc-entry">
-      <a href="#ruiyun.tools.timer.core/run-task!">run-task!</a>
+      <a href="#ruiyun.tools.timer/run-task!">run-task!</a>
     </div><div style="margin-left: 1em;" class="toc-entry">
-      <a href="#ruiyun.tools.timer.core/timer">timer</a>
+      <a href="#ruiyun.tools.timer/timer">timer</a>
     </div>
     <br />
   </div>
 </div>
 </div>
-                <div id="content-tag"><h1 id="overview">API for <span id="namespace-name">ruiyun.tools.timer.core</span>
+                <div id="content-tag"><h1 id="overview">API for <span id="namespace-name">ruiyun.tools.timer</span>
   - <span id="header-project">tools.timer</span> <span id="header-version"></span>
   </h1>
 <span id="author-line">by <span id="author-name">ruiyun</span><br /></span>
-<br />Full namespace name: <span id="long-name">ruiyun.tools.timer.core</span>
+<br />Full namespace name: <span id="long-name">ruiyun.tools.timer</span>
 <p></p>
 <h2>Overview</h2>
 <pre id="namespace-docstr">ruiyun.tools.timer is an easy to use Java Timer wrapper for clojure.
@@ -95,7 +95,7 @@ Finally, you can cancel a timer's tasks:
 <div id="var-entry">
   <br />
   <hr />
-  <h2 id="ruiyun.tools.timer.core/cancel!">cancel!</h2>
+  <h2 id="ruiyun.tools.timer/cancel!">cancel!</h2>
   <span id="var-type">function</span><br />
   <pre id="var-usage">Usage: (cancel! timer)
 </pre>
@@ -106,7 +106,7 @@ Finally, you can cancel a timer's tasks:
 </div><div id="var-entry">
   <br />
   <hr />
-  <h2 id="ruiyun.tools.timer.core/deamon-timer">deamon-timer</h2>
+  <h2 id="ruiyun.tools.timer/deamon-timer">deamon-timer</h2>
   <span id="var-type">function</span><br />
   <pre id="var-usage">Usage: (deamon-timer)
        (deamon-timer name)
@@ -118,7 +118,7 @@ Finally, you can cancel a timer's tasks:
 </div><div id="var-entry">
   <br />
   <hr />
-  <h2 id="ruiyun.tools.timer.core/run-task!">run-task!</h2>
+  <h2 id="ruiyun.tools.timer/run-task!">run-task!</h2>
   <span id="var-type">function</span><br />
   <pre id="var-usage">Usage: (run-task! task &amp; {:keys [by at delay period on-exception]})
 </pre>
@@ -142,7 +142,7 @@ Sometimes user task may cause exception, it's a good reason to use an exception 
 </div><div id="var-entry">
   <br />
   <hr />
-  <h2 id="ruiyun.tools.timer.core/timer">timer</h2>
+  <h2 id="ruiyun.tools.timer/timer">timer</h2>
   <span id="var-type">function</span><br />
   <pre id="var-usage">Usage: (timer)
        (timer name)
