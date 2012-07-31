@@ -21,7 +21,7 @@
 
               (cancel! greeting-timer)"
       :author "ruiyun"}
-  ruiyun.tools.timer.core
+  ruiyun.tools.timer
   (:import [java.util Timer TimerTask Date]))
 
 (defn timer
