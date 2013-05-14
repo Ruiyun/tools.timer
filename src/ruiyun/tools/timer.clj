@@ -28,7 +28,7 @@
   "Create a new java.util.Timer object."
   {:added "1.0.0"}
   ([] (Timer.))
-  ([name] (Timer. name)))
+  ([^String name] (Timer. name)))
 
 (defn deamon-timer
   "Create a new java.util.Timer object with deamon option."
@@ -52,7 +52,7 @@
   Sometimes user task may cause exception, it's a good reason to use an exception handler:
     :on-exception <handle function with an exception argument>"
   {:added "1.0.0"}
-  [task & {:keys [by at delay period on-exception]}]
+  [task & {:keys [^Timer by, ^Date at, ^long delay, ^long period, on-exception]}]
   {:pre [(fn? task)
          (or (nil? by) (instance? Timer by))
          (or (nil? at) (instance? Date at))
@@ -68,8 +68,8 @@
                       (task)
                       (catch Exception e
                         (on-exception e))))))
-        timer (or by (timer))
-        start-time (or at delay 0)]
+        ^Timer timer (or by (timer))
+        ^long start-time (or at delay 0)]
     (if (nil? period)
       (.schedule timer task start-time)
       (.schedule timer task start-time period))
@@ -78,5 +78,5 @@
 (defn cancel!
   "Terminates a timer, discarding any currently scheduled tasks."
   {:added "1.0.0"}
-  [timer]
+  [^Timer timer]
   (.cancel timer))

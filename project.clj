@@ -1,5 +1,10 @@
-(defproject ruiyun/tools.timer "1.0.0-SNAPSHOT"
+(defproject ruiyun/tools.timer "1.0.1"
   :description "An easy to use Java Timer wrapper for clojure."
-  :dependencies [[org.clojure/clojure "1.4.0"]]
-  :dev-dependencies [[lein-autodoc "0.9.0"]]
-  :autodoc {:name "tools.timer", :page-title "ruiyun.tools.timer API Documentation"})
+  :lein-release {:deploy-via :clojars}
+  :warn-on-reflection true
+  :min-lein-version "2.0.0"
+  :url "http://github.com/Ruiyun/tools.timer"
+  :license {:name "Apache License, Version 2.0"
+            :url "http://www.apache.org/licenses/LICENSE-2.0.html"}
+  :profiles {:dev {:dependencies [[org.clojure/clojure "1.5.1"]]
+                   :plugins [[codox "0.6.4"]]}})
