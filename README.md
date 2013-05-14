@@ -6,19 +6,9 @@ The ruiyun.tools.timer is a Java [Timer] and [TimerTask] wrapper for [Clojure].
 Installation
 ============
 
-Add the following to your **project.clj** or pom.xml:
+Add the following to your **project.clj**:
 
-Lein artifact:
-
-    [ruiyun/tools.timer "1.0.0-SNAPSHOT"]
-
-Maven:
-
-    <dependency>
-      <groupId>ruiyun</groupId>
-      <artifactId>tools.timer</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
-    </dependency>
+    [ruiyun/tools.timer "1.0.1"]
 
 Then execute
 
