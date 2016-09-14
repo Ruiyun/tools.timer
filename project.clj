@@ -1,4 +1,4 @@
-(defproject ruiyun/tools.timer "1.0.1"
+(defproject ruiyun/tools.timer "1.0.2"
   :description "An easy to use Java Timer wrapper for clojure."
   :lein-release {:deploy-via :clojars}
   :warn-on-reflection true
